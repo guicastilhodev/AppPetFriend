@@ -1,0 +1,15 @@
+C:\Users\guica\Documents\DEV\C#\AppPet\bin\Debug\net8.0\AppPet.exe
+C:\Users\guica\Documents\DEV\C#\AppPet\bin\Debug\net8.0\AppPet.deps.json
+C:\Users\guica\Documents\DEV\C#\AppPet\bin\Debug\net8.0\AppPet.runtimeconfig.json
+C:\Users\guica\Documents\DEV\C#\AppPet\bin\Debug\net8.0\AppPet.dll
+C:\Users\guica\Documents\DEV\C#\AppPet\bin\Debug\net8.0\AppPet.pdb
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\AppPet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\AppPet.AssemblyInfoInputs.cache
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\AppPet.AssemblyInfo.cs
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\AppPet.csproj.CoreCompileInputs.cache
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\AppPet.sourcelink.json
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\AppPet.dll
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\refint\AppPet.dll
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\AppPet.pdb
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\AppPet.genruntimeconfig.cache
+C:\Users\guica\Documents\DEV\C#\AppPet\obj\Debug\net8.0\ref\AppPet.dll
