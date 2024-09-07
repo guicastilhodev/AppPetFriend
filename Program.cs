@@ -5,12 +5,15 @@ string animalAge = "";
 string animalPhysicalDescription = "";
 string animalPersonalityDescription = "";
 string animalNickname = "";
+string suggestedDonation = "";
 
 int maxPets = 8;
 string? readResult;
 string menuSelection = "";
+decimal decimalDonation;
 
-string[,] ourAnimals = new string[maxPets, 6];
+
+string[,] ourAnimals = new string[maxPets, 7];
 
 for (int i = 0; i < maxPets; i++)
 {
@@ -23,6 +26,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "cachorro retriever dourado fêmea de tamanho médio, cor creme.";
             animalPersonalityDescription = "brincalhona, adora carinho.";
             animalNickname = "lola";
+            suggestedDonation = "85,00";
             break;
 
         case 1:
@@ -32,6 +36,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "golden retriever, grande e marrom";
             animalPersonalityDescription = "ama brincar";
             animalNickname = "loki";
+            suggestedDonation = "45,00";
             break;
 
         case 2:
@@ -41,6 +46,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "femea pequena e treinada";
             animalPersonalityDescription = "amigável";
             animalNickname = "Doris";
+            suggestedDonation = "60,00";
             break;
 
         case 3:
@@ -50,6 +56,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "";
             animalPersonalityDescription = "";
             animalNickname = "";
+            suggestedDonation = "";
             break;
 
         default:
@@ -68,6 +75,11 @@ for (int i = 0; i < maxPets; i++)
     ourAnimals[i, 3] = "Nome: " + animalNickname;
     ourAnimals[i, 4] = "Descrição física: " + animalPhysicalDescription;
     ourAnimals[i, 5] = "Personalidade: " + animalPersonalityDescription;
+    if (!decimal.TryParse(suggestedDonation, out decimalDonation))
+    {
+        decimalDonation = 45.00m;
+    }
+    ourAnimals[i, 6] = $"Doação sugerida: {decimalDonation:C2}";
 }
 
 do
@@ -101,7 +113,7 @@ do
                 if (ourAnimals[i, 0] != "ID #: ")
                 {
                     Console.WriteLine();
-                    for (int j = 0; j < 6; j++)
+                    for (int j = 0; j < 7; j++)
                     {
                         Console.WriteLine(ourAnimals[i, j]);
                     }
@@ -315,8 +327,8 @@ do
                 if (ourAnimals[i, 0] != "ID #: ")
                 {
 
-                bool validNickname = false;
-                bool validPersonalityDescription = false;
+                    bool validNickname = false;
+                    bool validPersonalityDescription = false;
 
                     if (ourAnimals[i, 3].Substring(5).Trim() == "" || ourAnimals[i, 3].Substring(5).Trim() == "tbd")
                     {
@@ -335,19 +347,19 @@ do
                         } while (!validNickname);
                     }
 
-                    if (ourAnimals[i, 5].Substring(14).Trim() == "" || ourAnimals[i, 5].Substring(14).Trim() == "tbd") 
+                    if (ourAnimals[i, 5].Substring(14).Trim() == "" || ourAnimals[i, 5].Substring(14).Trim() == "tbd")
                     {
                         Console.WriteLine($"Insira uma descrição da personalidade para {ourAnimals[i, 0]}");
 
-                        do 
+                        do
                         {
                             readResult = Console.ReadLine();
-                            
+
                             if (readResult != null)
                             {
                                 ourAnimals[i, 5] = "Personalidade: " + readResult;
                                 validPersonalityDescription = true;
-                                
+
                             }
                         } while (!validPersonalityDescription);
                     }
@@ -373,10 +385,81 @@ do
             readResult = Console.ReadLine();
             break;
         case "8":
-            Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+
+            string dogCharacteristic = "";
+
+            while (dogCharacteristic == "")
+            {
+                Console.WriteLine("\nEscreva as características desejadas separadas por vírgula");
+                readResult = Console.ReadLine();
+
+                if (readResult != null)
+                {
+                    dogCharacteristic = readResult.ToLower();
+                    Console.WriteLine();
+                }
+            }
+
+            string[] dogCharacteristicArray = dogCharacteristic.Split(",");
+            for (int i = 0; i < dogCharacteristicArray.Length; i++)
+            {
+                dogCharacteristicArray[i] = dogCharacteristicArray[i].Trim();
+            }
+            Array.Sort(dogCharacteristicArray);
+            bool matchesAnyDog = false;
+            string dogDescription = "";
+
+            string[] searchingIcons = { " |", " /", "--", " \\", " *" };
+
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 1].Contains("cachorro"))
+                {
+
+
+                    dogDescription = ourAnimals[i, 4] + "\n" + ourAnimals[i, 5];
+                    bool matchesCurrentDog = false;
+
+                    foreach (string characteristic in dogCharacteristicArray)
+                    {
+                        if (characteristic != null && characteristic.Trim() != "")
+                        {
+                            for (int j = 2; j > -1; j--)
+                            {
+                                foreach (string icon in searchingIcons)
+                                {
+                                    Console.WriteLine($"\rprocurando em nosso cachorro {ourAnimals[i, 3]} por {characteristic.Trim()} {icon} {j.ToString()}");
+                                    Thread.Sleep(100);
+                                }
+                                Console.Write($"\r{new String(' ', Console.BufferWidth)}");
+                            }
+
+                            if (dogDescription.Contains(" " + characteristic.Trim() + " "))
+                            {
+                                Console.WriteLine($"\rNosso cachorro {ourAnimals[i, 3]} possui a característica {characteristic.Trim()}");
+
+                                matchesCurrentDog = true;
+                                matchesAnyDog = true;
+                            }
+                        }
+
+                    }
+
+                    if (matchesCurrentDog)
+                    {
+                        Console.WriteLine($"\r{ourAnimals[i, 3]} ({ourAnimals[i, 0]})\n{dogDescription}\n");
+                    }
+                }
+            }
+
+            if (!matchesAnyDog)
+            {
+                Console.WriteLine($"Nenhum de nossos colegas é compatível com {dogCharacteristic}");
+            }
             Console.WriteLine("Aperte enter para continuar..");
             readResult = Console.ReadLine();
             break;
+
         case "sair":
             break;
         default:
