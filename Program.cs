@@ -92,10 +92,8 @@ do
     Console.WriteLine(" 2. Adicionar um novo animal para nossa lista");
     Console.WriteLine(" 3. Assegurar que as idades dos animais e as descrições físicas estão completas");
     Console.WriteLine(" 4. Assegurar que os nomes e as descrições de personalidade estão completos");
-    Console.WriteLine(" 5. Editar a idade do animal");
-    Console.WriteLine(" 6. Editar uma descrição de personalidade");
-    Console.WriteLine(" 7. Mostrar todos os gatos com uma característica específica");
-    Console.WriteLine(" 8. Mostrar todos os cachorros com uma característica específica");
+    Console.WriteLine(" 5. Mostrar todos os cachorros com uma característica específica");
+    Console.WriteLine(" 6. Mostrar todos os gatos com uma característica específica");
     Console.WriteLine();
     Console.WriteLine("Insira sua opção (ou escreva Sair para encerrar o programa)");
 
@@ -370,21 +368,6 @@ do
             readResult = Console.ReadLine();
             break;
         case "5":
-            Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
-            Console.WriteLine("Aperte enter para continuar..");
-            readResult = Console.ReadLine();
-            break;
-        case "6":
-            Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
-            Console.WriteLine("Aperte enter para continuar..");
-            readResult = Console.ReadLine();
-            break;
-        case "7":
-            Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
-            Console.WriteLine("Aperte enter para continuar..");
-            readResult = Console.ReadLine();
-            break;
-        case "8":
 
             string dogCharacteristic = "";
 
@@ -456,6 +439,11 @@ do
             {
                 Console.WriteLine($"Nenhum de nossos colegas é compatível com {dogCharacteristic}");
             }
+            Console.WriteLine("Aperte enter para continuar..");
+            readResult = Console.ReadLine();
+            break;
+        case "6":
+            Console.WriteLine("Funcionalidade em desenvolvimento");
             Console.WriteLine("Aperte enter para continuar..");
             readResult = Console.ReadLine();
             break;
